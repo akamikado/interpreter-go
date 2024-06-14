@@ -29,14 +29,14 @@ func (l *Lexer) PeekChar() byte {
 
 // Reads identifier from input
 func (l *Lexer) ReadIdentifier() []byte {
-	for ; isAlphabet(l.input[l.readPosition]) && l.readPosition < len(l.input); l.readPosition += 1 {
+	for ; l.readPosition < len(l.input) && isAlphabet(l.input[l.readPosition]); l.readPosition += 1 {
 	}
 	return l.input[l.position:l.readPosition]
 }
 
 // Reads number from input
 func (l *Lexer) ReadNumber() []byte {
-	for ; isDigit(l.input[l.readPosition]) && l.readPosition < len(l.input); l.readPosition += 1 {
+	for ; l.readPosition < len(l.input) && isDigit(l.input[l.readPosition]); l.readPosition += 1 {
 	}
 	return l.input[l.position:l.readPosition]
 }
