@@ -7,5 +7,8 @@ import (
 )
 
 func main() {
-	repl.Start(os.Stdin, os.Stdout)
+	args := os.Args[1:]
+	if args == "--repl" {
+		repl.Start(os.Stdin, os.Stdout)
+	}
 }
