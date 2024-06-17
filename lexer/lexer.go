@@ -61,7 +61,7 @@ func isDigit(c byte) bool {
 func (l *Lexer) GetToken() t.Token {
 	var tok t.Token
 
-	if l.readPosition == len(l.input) {
+	if l.readPosition >= len(l.input) {
 		tok.Type = t.EOF
 		tok.Literal = []byte{0}
 		return tok
@@ -70,7 +70,7 @@ func (l *Lexer) GetToken() t.Token {
 	for ; l.readPosition < len(l.input) && l.input[l.readPosition] == ' '; l.readPosition += 1 {
 	}
 
-	if l.readPosition == len(l.input) {
+	if l.readPosition >= len(l.input) {
 		tok.Type = t.EOF
 		tok.Literal = []byte{0}
 		return tok
@@ -139,7 +139,6 @@ func (l *Lexer) GetToken() t.Token {
 			tok.Literal = []byte{'='}
 		}
 	case '\n':
-		l.readPosition += 1
 		tok = l.GetToken()
 	default:
 		if isAlphabet(l.char) {
