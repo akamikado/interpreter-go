@@ -106,10 +106,10 @@ func (l *Lexer) GetToken() t.Token {
 		tok.Type = t.MINUS
 		tok.Literal = []byte{'-'}
 	case '*':
-		tok.Type = t.MULTIPLY
+		tok.Type = t.ASTERISK
 		tok.Literal = []byte{'*'}
 	case '/':
-		tok.Type = t.DIVIDE
+		tok.Type = t.SLASH
 		tok.Literal = []byte{'/'}
 	case '%':
 		tok.Type = t.MODULO
