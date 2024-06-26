@@ -138,6 +138,9 @@ func (l *Lexer) GetToken() t.Token {
 			tok.Type = t.ASSIGN
 			tok.Literal = []byte{'='}
 		}
+	case '"':
+		tok.Type = t.STRING
+		tok.Literal = l.ReadString()
 	case '\n':
 		tok = l.GetToken()
 	default:
@@ -171,4 +174,13 @@ func Tokenize(input []byte) []t.Token {
 	}
 
 	return tokens
+}
+
+func (l *Lexer) ReadString() []byte {
+	for ; l.readPosition < len(l.input) && l.input[l.readPosition] != '"'; l.readPosition += 1 {
+	}
+
+	l.readPosition += 1
+
+	return l.input[l.position+1 : l.readPosition-1]
 }

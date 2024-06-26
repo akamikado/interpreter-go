@@ -312,9 +312,24 @@ func (ce *CallExpression) String() string {
 	}
 
 	out.WriteString(ce.Function.String())
-	out.WriteString("{")
+	out.WriteString("(")
 	out.WriteString(strings.Join(args, ", "))
-	out.WriteString("}")
+	out.WriteString(")")
 
 	return out.String()
+}
+
+type StringLiteral struct {
+	Token token.Token
+	Value string
+}
+
+func (sl *StringLiteral) ExpressionNode() {}
+
+func (sl *StringLiteral) TokenLiteral() string {
+	return string(sl.Token.Literal)
+}
+
+func (sl *StringLiteral) String() string {
+	return string(sl.Token.Literal)
 }
