@@ -99,6 +99,12 @@ func (l *Lexer) GetToken() t.Token {
 	case '}':
 		tok.Type = t.RBRACE
 		tok.Literal = []byte{'}'}
+	case '[':
+		tok.Type = t.LBRACKET
+		tok.Literal = []byte{'['}
+	case ']':
+		tok.Type = t.RBRACKET
+		tok.Literal = []byte{']'}
 	case '+':
 		tok.Type = t.PLUS
 		tok.Literal = []byte{'+'}
@@ -141,6 +147,9 @@ func (l *Lexer) GetToken() t.Token {
 	case '"':
 		tok.Type = t.STRING
 		tok.Literal = l.ReadString()
+	case ':':
+		tok.Type = t.COLON
+		tok.Literal = []byte{':'}
 	case '\n':
 		tok = l.GetToken()
 	default:

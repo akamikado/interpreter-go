@@ -22,7 +22,10 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
+	LBRACKET  = "["
+	RBRACKET  = "]"
 	STRING    = "STRING"
+	COLON     = ":"
 
 	// operators
 	ASSIGN   = "="
