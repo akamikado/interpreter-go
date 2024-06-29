@@ -1,6 +1,6 @@
 # Interpreter in Go
 
-# Information
+## Information
 
 Interpreter runs through a REPL
 
@@ -16,7 +16,7 @@ Currently supports :
    - Builtin functions (len, first, last, tail)
 - HashMaps
 
-# How to run
+## How to run
 - Clone the repo
 - Build the project
     ```bash
