@@ -1,6 +1,8 @@
 package evaluator
 
 import (
+	"fmt"
+
 	"interpreter/object"
 )
 
@@ -85,6 +87,14 @@ var (
 				copy(newElements, arr.Elements[1:length])
 				newElements[length] = args[1]
 				return &object.Array{Elements: newElements}
+			},
+		},
+		"print": {
+			Fn: func(args ...object.Object) object.Object {
+				for _, arg := range args {
+					fmt.Println(arg.Inspect())
+				}
+
 				return NULL
 			},
 		},
