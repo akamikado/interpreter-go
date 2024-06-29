@@ -1,5 +1,9 @@
 # Interpreter in Go
 
+# Information
+
+Interpreter runs through a REPL
+
 Currently supports :
 - Integers
 - Booleans
@@ -11,6 +15,17 @@ Currently supports :
 - Arrays (supports any type)
    - Builtin functions (len, first, last, tail)
 - HashMaps
+
+# How to run
+- Clone the repo
+- Build the project
+    ```bash
+        go build ./main.go
+    `
+- Run the binary (with repl flag for REPL)
+    ```bash
+        ./main --repl
+    `
 
 ## TODO
 - Builtin functions
