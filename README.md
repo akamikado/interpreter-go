@@ -20,12 +20,10 @@ Currently supports :
 - Clone the repo
 - Build the project
     ```bash
-        go build ./main.go
-    `
+        go build ./main.go`
 - Run the binary (with repl flag for REPL)
     ```bash
-        ./main --repl
-    `
+        ./main --repl`
 
 ## TODO
 - Builtin functions
